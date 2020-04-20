@@ -1,0 +1,23 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.container {
+
+    @include media-breakpoint-up(md) {
+        max-width: vw(1330,1366);
+    }
+
+    @include media-breakpoint-up(xl) {
+        max-width: vw(1670,1920);
+    }
+
+    @media (min-width:1920px) {
+        max-width: 1670px;
+    }
+}

@@ -1,7 +1,5 @@
 var gulp = require('gulp'),
   concat = require('gulp-concat'),
-  // uglify = require('gulp-uglify-es').default,
-  terser = require('gulp-terser'),
   sass = require('gulp-sass'),
   rename = require('gulp-rename'),
   autoprefixer = require('gulp-autoprefixer'),
@@ -9,9 +7,7 @@ var gulp = require('gulp'),
   size = require('gulp-size'),
   plumber = require('gulp-plumber'),
   sourcemaps = require('gulp-sourcemaps'),
-  browserslist = require('browserslist'),
-  babel = require('gulp-babel');
-
+  browserslist = require('browserslist');
 
 let sassOptions = {
     outputStyle: 'compressed',
@@ -58,7 +54,7 @@ var functionsBrowserSync = function (done) {
       .pipe(browserSync.stream());
   },
   functionsHtml = function () {
-    return gulp.src(roots.srcDir + '**/*.html').pipe(browserSync.stream());
+    return gulp.src('./src/**/*.html').pipe(browserSync.stream());
   },
   functionsWatch = function () {
     gulp.watch('./src/scss/**/*.scss', gulp.series('sass'));
@@ -70,4 +66,5 @@ gulp.task('browser-sync', functionsBrowserSync);
 gulp.task('sass', functionsSass);
 gulp.task('html', functionsHtml);
 gulp.task('watch', functionsWatch);
+
 gulp.task('default', gulp.series('browser-sync', 'html', 'sass', 'watch'));

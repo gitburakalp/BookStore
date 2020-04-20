@@ -1,0 +1,197 @@
+.header {
+    position: relative;
+
+    @include media-breakpoint-down(sm) {
+        &::before {
+            content: "";
+            position: absolute;
+            width: 130%;
+            border-radius: 50%;
+            background-color: $colors--main-green;
+            transform: translate(-10%, -50%);
+            bottom: -42vw;
+            top: 0;
+        }
+
+        > .container > .row {
+            + .row {
+                margin-top: 1.4rem;
+            }
+        }
+    }
+
+    &-top {
+        display: flex;
+        flex-flow: nowrap;
+        align-items: center;
+
+        > * {
+            position: relative;
+            min-height: 1px;
+            flex: 0 0 auto;
+            width: auto;
+            max-width: 100%;
+        }
+        
+        font-size: 1.4rem;
+        padding: 16px 0;
+
+        @include media-breakpoint-up(lg) {
+            padding:16px
+        }
+
+        &-logo {
+
+            @include media-breakpoint-up(md) {
+                display: none;
+            }
+        }
+
+        &-right {
+            margin-left: auto;
+        }
+    }
+
+    &-main {
+        @include media-breakpoint-up(md) {
+            padding: 1.2rem 3rem;
+            border-radius: 1rem;
+            background-color: $colors--main-green;
+        }
+    }
+
+    &-list {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+
+        display: flex;
+        flex-flow: nowrap;
+
+        > * {
+            position: relative;
+            min-height: 1px;
+            flex: 0 0 auto;
+            width: auto;
+            max-width: 100%;
+
+            + * {
+                margin-left: 1rem;
+
+                @include media-breakpoint-up(lg) {
+                    margin-left: 1.6rem;
+                }
+            }
+        }
+
+        &-link {
+            font-family: inherit;
+            font-size: 14px;
+            color: $colors--black-two;
+            letter-spacing: 0.22px;
+
+            @include media-breakpoint-down(sm) {
+                text-decoration: underline;
+            }
+
+            &:hover {
+                color: $colors--black;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &-top {
+        .header-list {
+            > * {
+                + * {
+                    padding-left: 7.5px;
+                    margin-left: 7.5px;
+                    border-left: 1px solid;
+    
+                    @include media-breakpoint-up(lg) {
+                        padding-left: 12px;
+                        margin-left: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    &-main {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+
+        > * {
+            position: relative;
+            min-height: 1px;
+            width: 100%;
+        }
+
+        .header-logo {
+            display: none;
+
+            @include media-breakpoint-up(md) {
+                display: block;
+
+                flex: 0 0 105px;
+                max-width: 105px;
+            }
+        }
+
+        &-right {
+            position: relative;
+
+            @include media-breakpoint-up(md) {
+                flex: 0 0 auto;
+                width: auto;
+                max-width: 100%;
+            }
+        }
+
+        &-menu {
+
+            .header-list {
+                &-link {
+                    font-size: 1.6rem;
+                    font-weight: bold;
+                    color: $colors--white;
+                }
+            }
+
+            @include  media-breakpoint-down(sm) {
+                position: fixed;
+                left:0;
+                right: 0;
+                bottom: 0;
+                padding: 1rem 1.5rem;
+                background-color: $colors--black-two;
+
+                .header-list {
+                    position: relative;
+
+                    &-item {
+                        flex-basis: 0;
+                        flex-grow: 1;
+                        max-width: 100%;
+                        text-align: center;
+
+                        &:not(.active) {
+                            opacity: 0.35;
+                        }
+                    }
+
+                    &-link {
+                        display: block;
+                        font-size: 1.2rem;
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            
+        }
+    }
+}

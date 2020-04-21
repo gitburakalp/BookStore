@@ -39,10 +39,22 @@ $bgColorMap: (
     &--#{$name} {
       background-color: $hex;
       color: $colors--white;
+
+      .with-three-dots {
+        &:after {
+            background-color: $hex;
+        }
+    }
     }
   }
 }
 
 .bg {
   @include color-modifiers;
+}
+
+.text-color {
+  &--black {
+    color: $colors--black !important;
+  }
 }

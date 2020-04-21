@@ -11,6 +11,7 @@
             background-color: $colors--main-green;
             transform: translate(-10%, -50%);
             bottom: -35vw;
+            max-height: 413px;
             top: 0;
         }
 
@@ -198,6 +199,7 @@
                 bottom: 0;
                 padding: 1rem 1.5rem;
                 background-color: $colors--black-two;
+                z-index: 999;
 
                 .header-list {
                     position: relative;

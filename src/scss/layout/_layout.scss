@@ -1,5 +1,6 @@
 html {
     font-size: 62.5%;
+    
 
     @include media-breakpoint-up(md) {
         font-size: 50%;
@@ -21,7 +22,15 @@ body {
 
 main {
     padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-bottom: 10rem;
+
+    .main-section {
+        > div {
+            + * {
+                margin-top: 3rem;
+            }
+        }
+    }
 
     .container {
         @include media-breakpoint-down(sm) {
@@ -61,7 +70,19 @@ main {
     }
 
     @include media-breakpoint-up(md) {
-        max-width: vw(1330,1366);
+        max-width: calc(100% - 4.763rem);
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+
+        .row {
+            margin-left: -1.5rem;
+            margin-right: -1.5rem;
+
+            > [class*=col] {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
     }
 
     @include media-breakpoint-up(xl) {

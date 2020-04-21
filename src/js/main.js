@@ -23,6 +23,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  $(window).on('resize orientedChanged',function(){
+    $('[class*=-slider]:not([class*=-slider-block])').each(function(){
+        var $thisSwiper = $(this)[0].swiper;
+
+        if($thisSwiper != undefined || $thisSwiper != "") {
+            $thisSwiper.update(true)
+        }
+    })
+  })
+
   $('.cards-slider').each(function () {
     var $this = $(this);
     var slideCssClass = 'cards-slide';
@@ -73,4 +83,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var cardsSlider = new Swiper($this, config);
   });
+
+  $('.cards.standart').each(function(){
+    $(this).find('.description').height() >= 100 ? $(this).find('.description').addClass("with-three-dots") : ""
+  })
 });

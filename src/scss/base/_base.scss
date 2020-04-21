@@ -8,6 +8,15 @@ a {
     }
 }
 
+[role=button] {
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+
+
 .update-notification {
     font-size: 1.5rem;
     font-weight: bold;
